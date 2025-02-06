@@ -15,7 +15,7 @@ const Banner = () => {
       <div className="relative h-full flex items-center justify-center text-center">
         <div className="text-white max-w-3xl px-4">
           <h1 className="text-5xl font-bold mb-4">
-            Discover the World of Premium Spices
+            Discover the World of</br>Premium Spices
           </h1>
           <p className="text-xl mb-8">
             Elevate your culinary experience with our carefully curated selection of authentic spices from around the globe
