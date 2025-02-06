@@ -15,10 +15,10 @@ const Banner = () => {
       <div className="relative h-full flex items-center justify-center text-center">
         <div className="text-white max-w-3xl px-4">
           <h1 className="text-5xl font-bold mb-4">
-            Discover the World of</br>Premium Spices
+            Discover the Garden of Spices 
           </h1>
           <p className="text-xl mb-8">
-            Elevate your culinary experience with our carefully curated selection of authentic spices from around the globe
+            Elevate your culinary experience with our carefully curated selection of authentic spices from around the globe. Gift your loved ones the aroma of nature.
           </p>
           <Link to="/products">
             <button className="bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition duration-300">
