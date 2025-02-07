@@ -38,7 +38,7 @@ const About = () => {
             <img 
               src="https://source.unsplash.com/800x600/?spices,cooking"
               alt="Various colorful spices"
-              className="rounded-lg shadow-xl"
+              className="rounded-lg"
             />
             <div className="absolute -bottom-6 -left-6 bg-green-600 text-white p-6 rounded-lg">
               <p className="text-lg font-semibold">
