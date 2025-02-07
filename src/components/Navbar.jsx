@@ -129,7 +129,7 @@ const Navbar = () => {
                     onClick={() => handleAuthClick('login')}
                     className="bg-green-800 px-4 py-2 rounded hover:bg-green-900 ml-2"
                   >
-                    Get Started
+                    Login
                   </button>
 {/*                   <button 
                     onClick={() => handleAuthClick('register')}
