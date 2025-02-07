@@ -347,5 +347,6 @@ const Products = () => {
     </div>
   );
 };
-
+<script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+<zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cm6htgghh0016lhc21svhtgs7'></zapier-interfaces-chatbot-embed>
 export default Products;
