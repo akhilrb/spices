@@ -25,6 +25,7 @@ const AdminOrders = () => {
 
   useEffect(() => {
     fetchOrders();
+    console.log(orders);
   }, [filters, sorting, currentPage, itemsPerPage]);
 
   const fetchOrders = async () => {
@@ -44,6 +45,7 @@ const AdminOrders = () => {
           )
         `)
         .range((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage - 1);
+
 
       // Apply filters
       if (filters.status) {
@@ -559,33 +561,43 @@ const AdminOrders = () => {
                                 </span>
                               </div>
                               <div className="space-y-2">
-                                {order.order_items.map((item, index) => (
-                                  <div 
-                                    key={index} 
-                                    className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm"
-                                  >
-                                    <div className="flex items-center space-x-4">
-                                      {item.products.image_url && (
-                                        <img 
-                                          src={item.products.image_url} 
-                                          alt={item.products.name}
-                                          className="w-12 h-12 object-cover rounded"
-                                        />
-                                      )}
-                                      <div>
-                                        <p className="text-sm font-medium text-gray-900">
-                                          {item.products.name}
+                                {order.order_items.map((item, index) => {
+                                  const amountPerUnit = item.price; // Amount per unit
+                                  const totalAmount = item.quantity * item.price; // Total amount for the item
+
+                                  return (
+                                    <div 
+                                      key={index} 
+                                      className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm"
+                                    >
+                                      <div className="flex items-center space-x-4">
+                                        {item.products.image_url && (
+                                          <img 
+                                            src={item.products.image_url} 
+                                            alt={item.products.name}
+                                            className="w-12 h-12 object-cover rounded"
+                                          />
+                                        )}
+                                        <div>
+                                          <p className="text-sm font-medium text-gray-900">
+                                            {item.products.name}
+                                          </p>
+                                          <p className="text-sm text-gray-500">
+                                            Quantity: {item.quantity}
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div className="text-right">
+                                        <p className="text-sm text-gray-500">
+                                          Price per Unit: ₹{amountPerUnit.toFixed(2)}
                                         </p>
                                         <p className="text-sm text-gray-500">
-                                          Quantity: {item.quantity}
+                                          Total Amount: ₹{totalAmount.toFixed(2)}
                                         </p>
                                       </div>
                                     </div>
-                                    <div className="text-sm font-medium text-gray-900">
-                                      {formatPrice(item.price)}
-                                    </div>
-                                  </div>
-                                ))}
+                                  );
+                                })}
                               </div>
                               <div className="mt-3 text-right">
                                 <p className="text-sm font-medium text-gray-900">
