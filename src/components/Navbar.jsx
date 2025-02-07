@@ -32,18 +32,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav 
-        className="bg-green-700 text-white shadow-lg sticky top-0 z-50"
-        style={{
-          backgroundImage: "url('https://source.unsplash.com/1600x900/?spices')",
-          backgroundColor: "green", 
-          backgroundBlendMode: "overlay"
-        }}
-      >
+      <nav className="bg-green-700 text-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link to="/" className="text-xl font-bold">Spice Heaven</Link>
+              <Link to="/" className="text-xl font-bold">Spice Haven</Link>
               <div className="hidden md:block ml-10">
                 <Link to="/" className="px-3 py-2 hover:text-green-200">Home</Link>
                 <a href="#about" className="px-3 py-2 hover:text-green-200">About</a>
