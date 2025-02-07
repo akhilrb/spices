@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
         )}
         <div className="text-center text-gray-600 border-t border-gray-200 pt-8">
-          <p>&copy; {new Date().getFullYear()} Spices Haaven. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Spices Heaven. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -49,5 +49,3 @@ const Footer = () => {
 };
 
 export default Footer; 
-<script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
-<zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cm6htgghh0016lhc21svhtgs7'></zapier-interfaces-chatbot-embed>
