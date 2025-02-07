@@ -11,7 +11,7 @@ import Banner from './components/Banner';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-// import SupabaseTest from './components/SupabaseTest';
+import SupabaseTest from './components/SupabaseTest';
 import AdminRoute from './components/AdminRoute';
 
 // Lazy load components
