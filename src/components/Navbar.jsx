@@ -129,14 +129,14 @@ const Navbar = () => {
                     onClick={() => handleAuthClick('login')}
                     className="px-4 py-2 hover:text-green-200"
                   >
-                    Login
+                    Get Started
                   </button>
-                  <button 
+{/*                   <button 
                     onClick={() => handleAuthClick('register')}
                     className="bg-green-800 px-4 py-2 rounded hover:bg-green-900 ml-2"
                   >
                     Register
-                  </button>
+                  </button> */}
                 </div>
               )}
               {!isAdmin && (
