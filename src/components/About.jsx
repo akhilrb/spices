@@ -40,7 +40,7 @@ const About = () => {
               alt="Various colorful spices"
               className="rounded-lg shadow-xl"
             />
-            <div className="absolute -bottom-6 -left-6 bg-green-600 text-white p-6 rounded-lg shadow-lg">
+            <div className="absolute -bottom-6 -left-6 bg-green-600 text-white p-6 rounded-lg">
               <p className="text-lg font-semibold">
                 "Quality spices are the foundation of exceptional cooking"
               </p>
