@@ -43,7 +43,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link to="/" className="text-xl font-bold">Spices Heaven</Link>
+              <Link to="/" className="text-xl font-bold">Spice Heaven</Link>
               <div className="hidden md:block ml-10">
                 <Link to="/" className="px-3 py-2 hover:text-green-200">Home</Link>
                 <a href="#about" className="px-3 py-2 hover:text-green-200">About</a>
@@ -130,7 +130,7 @@ const Navbar = () => {
                   >
                     Login
                   </button>
-                <button 
+                  <button 
                     onClick={() => handleAuthClick('register')}
                     className="bg-green-800 px-4 py-2 rounded hover:bg-green-900 ml-2"
                   >
@@ -159,6 +159,5 @@ const Navbar = () => {
     </>
   );
 };
-<script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
-<zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cm6htgghh0016lhc21svhtgs7'></zapier-interfaces-chatbot-embed>
+
 export default Navbar; 
