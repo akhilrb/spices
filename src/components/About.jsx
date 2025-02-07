@@ -25,7 +25,7 @@ const About = () => {
                 <div className="text-sm text-gray-500">Unique Spices</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600">20+</div>
+                <div className="text-3xl font-bold text-green-600">10+</div>
                 <div className="text-sm text-gray-500">Countries</div>
               </div>
               <div className="text-center">
