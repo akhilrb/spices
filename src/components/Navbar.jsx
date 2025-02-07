@@ -32,6 +32,7 @@ const Navbar = () => {
 
   return (
     <>
+      <div>
       <nav 
         className="bg-green-700 text-white shadow-lg sticky top-0 z-50"
         style={{
@@ -156,6 +157,7 @@ const Navbar = () => {
         isOpen={showProfileModal}
         onClose={() => setShowProfileModal(false)}
       />
+        </div>
     </>
   );
 };
