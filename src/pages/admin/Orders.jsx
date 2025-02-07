@@ -585,13 +585,15 @@ const AdminOrders = () => {
                                           <p className="text-sm text-gray-500">
                                             Quantity: {item.quantity}
                                           </p>
-                                          <p className="text-sm text-gray-500">
-                                            Price per Unit: ${amountPerUnit.toFixed(2)}
-                                          </p>
-                                          <p className="text-sm text-gray-500">
-                                            Total Amount: ${totalAmount.toFixed(2)}
-                                          </p>
                                         </div>
+                                      </div>
+                                      <div className="text-right">
+                                        <p className="text-sm text-gray-500">
+                                          Price per Unit: ₹{amountPerUnit.toFixed(2)}
+                                        </p>
+                                        <p className="text-sm text-gray-500">
+                                          Total Amount: ₹{totalAmount.toFixed(2)}
+                                        </p>
                                       </div>
                                     </div>
                                   );
