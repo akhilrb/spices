@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { supabase } from '../supabaseClient';
 import CartIcon from './CartIcon';
 import AuthModal from './AuthModal';
 import ProfileModal from './ProfileModal';
@@ -30,9 +31,34 @@ const Navbar = () => {
     setShowAuthModal(true);
   };
 
+  const handleSignOut = async () => {
+    const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+  
+    if (sessionError) {
+      console.error("Error fetching session:", sessionError.message);
+      return;
+    }
+
+    if (!session) {
+      console.error("Auth session is missing!");
+      // Optionally redirect to login or show a message to the user
+      return;
+    }
+
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.error("Error signing out:", error.message);
+      return; // Handle the error appropriately
+    }
+
+    // Proceed with your logic after successful sign out
+    signOut(); // This should be your custom sign-out logic
+    setShowProfileMenu(false); // Close the profile menu if needed
+  };
+
   return (
     <>
-      <div>
       <nav 
         className="bg-green-700 text-white shadow-lg sticky top-0 z-50"
         style={{
@@ -44,14 +70,49 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link to="/" className="text-xl font-bold">Spices Heaven</Link>
+              <Link to="/" className="text-xl font-bold">Spice Heaven</Link>
               <div className="hidden md:block ml-10">
-                <Link to="/" className="px-3 py-2 hover:text-green-200">Home</Link>
-                <a href="#about" className="px-3 py-2 hover:text-green-200">About</a>
+                <button
+                  onClick={() => {
+                    if (window.location.pathname !== '/') {
+                      window.location.href = '/';
+                    } else {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
+                  className="px-3 py-2 hover:text-green-200"
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => {
+                    const aboutSection = document.getElementById('about');
+                    if (window.location.pathname !== '/') {
+                      window.location.href = '/#about';
+                    } else if (aboutSection) {
+                      aboutSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="px-3 py-2 hover:text-green-200"
+                >
+                  About
+                </button>
                 {!isAdmin && (
                   <Link to="/products" className="px-3 py-2 hover:text-green-200">Products</Link>
                 )}
-                <a href="#contact" className="px-3 py-2 hover:text-green-200">Contact</a>
+                <button
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    if (window.location.pathname !== '/') {
+                      window.location.href = '/#contact';
+                    } else if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="px-3 py-2 hover:text-green-200"
+                >
+                  Contact
+                </button>
               </div>
             </div>
             <div className="flex items-center">
@@ -112,10 +173,7 @@ const Navbar = () => {
                       )}
                       <div className="border-t border-gray-100 my-1"></div>
                       <button
-                        onClick={() => {
-                          signOut();
-                          setShowProfileMenu(false);
-                        }}
+                        onClick={handleSignOut}
                         className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 w-full text-left"
                       >
                         Sign Out
@@ -127,11 +185,11 @@ const Navbar = () => {
                 <div>
                   <button 
                     onClick={() => handleAuthClick('login')}
-                    className="bg-green-800 px-4 py-2 rounded hover:bg-green-900 ml-2"
+                    className="px-4 py-2 hover:text-green-200"
                   >
                     Login
                   </button>
-{/*                   <button 
+                  {/* <button 
                     onClick={() => handleAuthClick('register')}
                     className="bg-green-800 px-4 py-2 rounded hover:bg-green-900 ml-2"
                   >
@@ -140,9 +198,9 @@ const Navbar = () => {
                 </div>
               )}
               {!isAdmin && (
-                <div className="ml-4">
+                <Link to="/cart" className="ml-4">
                   <CartIcon />
-                </div>
+                </Link>
               )}
             </div>
           </div>
@@ -157,7 +215,6 @@ const Navbar = () => {
         isOpen={showProfileModal}
         onClose={() => setShowProfileModal(false)}
       />
-        </div>
     </>
   );
 };
