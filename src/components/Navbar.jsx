@@ -70,7 +70,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link to="/" className="text-xl font-bold">Spice Heaven</Link>
+              <Link to="/" className="text-xl font-bold">Spices Heaven</Link>
               <div className="hidden md:block ml-10">
                 <button
                   onClick={() => {
